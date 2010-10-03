@@ -77,8 +77,8 @@ class DATABASE_CONFIG {
 		'driver' => 'mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'root',
-		'password' => '',
+		'login' => 'griff',
+		'password' => 'gravytime',
 		'database' => 'unit_test',
 		'prefix' => '',
 	);
@@ -87,8 +87,8 @@ class DATABASE_CONFIG {
 		'driver' => 'mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'root',
-		'password' => '',
+		'login' => 'griff',
+		'password' => 'gravytime',
 		'database' => 'test_unit_test',
 		'prefix' => '',
 	);

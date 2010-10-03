@@ -3,9 +3,13 @@
 class Article extends AppModel {
 	var $name = 'Article';
 	
-	function published(){
-		return $this->find(array('published'=>1));
-	}
+    function published($fields = null) { 
+        $conditions = array( 
+            $this->name . '.published' => 1 
+        ); 
+         
+        return $this->find('all', array('conditions'=>$conditions, 'fields'=>$fields)); 
+    }
 }
 
 ?>
