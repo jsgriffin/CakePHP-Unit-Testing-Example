@@ -7,21 +7,24 @@ class ArticlesTest extends CakeWebTestCase {
 	}
 	
 	function testIndex() {
-		$this->get($this->baseurl);
-		$this->assertText('Articles');
+		// Checks that the home page loads
+		$this->assertTrue($this->get($this->baseurl));
 	}
 	
 	function testAddArticle(){
-		$this->get($this->baseurl . '/articles/add');
-		$this->clickLink('New Article');
-		$this->assertText('New Article');
+		$this->assertTrue($this->get($this->baseurl . '/articles/add'));
 		
+		// Fill in the form fields
 		$this->setField('data[Article][title]', 'Bacons');
 		$this->setField('data[Article][content]', 'And cheeses.');
 		$this->setField('data[Article][published]', '1');
+		
+		// Submit the form
+		// 'Submit' is the text of the button to click
 		$this->click('Submit');
 		
-		$this->get('http://cakeunit.dev/');
+		// Get the home page, and ensure the new post is on there
+		$this->get($this->baseurl);
 		$this->assertText('Bacons');
 	}
 }
