@@ -1,12 +1,18 @@
 <?php
 class ArticlesTest extends CakeWebTestCase {
+	var $baseurl;
+	
+	function setUp(){
+		$this->baseurl = 'http://' . $_SERVER['HTTP_HOST'];
+	}
+	
 	function testIndex() {
-		$this->get('http://' . $_SERVER['HTTP_HOST']);
+		$this->get($this->baseurl);
 		$this->assertText('Articles');
 	}
 	
 	function testAddArticle(){
-		$this->get('http://' . $_SERVER['HTTP_HOST'] . '/articles/add');
+		$this->get($this->baseurl . '/articles/add');
 		$this->clickLink('New Article');
 		$this->assertText('New Article');
 		
