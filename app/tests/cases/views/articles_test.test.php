@@ -1,20 +1,21 @@
 <?php
 class ArticlesTest extends CakeWebTestCase {
-	function testIndexAddArticle() {
-		$this->get('/');
-
+	function testIndex() {
+		$this->get('http://' . $_SERVER['HTTP_HOST']);
+		$this->assertText('Articles');
+	}
+	
+	function testAddArticle(){
+		$this->get('http://' . $_SERVER['HTTP_HOST'] . '/articles/add');
 		$this->clickLink('New Article');
 		$this->assertText('New Article');
 		
-		$this->post('articles/add',
-			array(
-				'Article'=>array(
-					'title'=>'Bacons',
-					'content'=>"Here's some content",
-					'published'=>1
-				)
-			)
-		);
+		$this->setField('data[Article][title]', 'Bacons');
+		$this->setField('data[Article][content]', 'And cheeses.');
+		$this->setField('data[Article][published]', '1');
+		$this->click('Submit');
+		
+		$this->get('http://cakeunit.dev/');
 		$this->assertText('Bacons');
 	}
 }
