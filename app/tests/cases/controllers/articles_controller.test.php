@@ -1,5 +1,5 @@
 <?php 
-class ArticlesControllerTest extends CakeTestCase {
+class ArticlesControllerTest extends CakeTestCase {	
 	function testIndex() { 
 		$result = $this->testAction('/articles/index',
 										array('fixturize'=>true, 'return'=>'vars')
