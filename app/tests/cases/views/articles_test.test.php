@@ -6,7 +6,7 @@ class ArticlesTest extends CakeWebTestCase {
 		$this->baseurl = 'http://' . $_SERVER['HTTP_HOST'];
 	}
 	
-	function testIndex() {
+	/*function testIndex() {
 		// Checks that the home page loads
 		$this->assertTrue($this->get($this->baseurl));
 	}
@@ -26,6 +26,6 @@ class ArticlesTest extends CakeWebTestCase {
 		// Get the home page, and ensure the new post is on there
 		$this->get($this->baseurl);
 		$this->assertText('Bacons');
-	}
+	}*/
 }
 ?>
